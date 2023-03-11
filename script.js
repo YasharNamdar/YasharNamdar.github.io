@@ -207,6 +207,8 @@ function savePageCancel() {
   document.getElementsByClassName("container")[0].style.filter = "none";
   document.getElementsByClassName("page-denier")[0].style.display = "none";
   document.getElementsByClassName("page-save")[0].style.display = "none";
+  document.getElementsByClassName("save-input-name")[0].style.borderColor =
+    "#047857";
   for (
     let j = 0;
     j < document.getElementsByClassName("save-input").length;
@@ -230,6 +232,8 @@ function savePageSave() {
   document.getElementsByClassName("container")[0].style.filter = "none";
   document.getElementsByClassName("page-denier")[0].style.display = "none";
   document.getElementsByClassName("page-save")[0].style.display = "none";
+  document.getElementsByClassName("save-input-name")[0].style.borderColor =
+    "#047857";
   for (
     let j = 0;
     j < document.getElementsByClassName("save-input").length;
