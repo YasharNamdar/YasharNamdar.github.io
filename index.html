@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link href="style.css" rel="stylesheet" />
+    <script src="zxcvbn.js"></script>
+    <script src="script.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator by Yashar Namdar</title>
+  </head>
+  <body>
+    <div class="header">
+      <div class="header-title">
+        <ion-icon name="dice-outline" class="header-icon"></ion-icon>
+        <span class="header-title__text">PassBuilder</span>
+      </div>
+    </div>
+    <div class="container">
+      <div class="sidebar">
+        <div class="sidebar-item">
+          <ion-icon name="home-outline" class="sidebar-icon"></ion-icon>
+          <div class="sidebar-item__text">Password Generator</div>
+        </div>
+        <div class="sidebar-item">
+          <ion-icon name="bookmark-outline" class="sidebar-icon"></ion-icon>
+          <div class="sidebar-item__text">Saved Passwords</div>
+        </div>
+        <div class="sidebar-item">
+          <ion-icon name="settings-outline" class="sidebar-icon"></ion-icon>
+          <div class="sidebar-item__text">Settings</div>
+        </div>
+        <div class="credits">2023 by Yashar Namdar</div>
+      </div>
+      <div class="page">
+        <div class="page1">
+          <div class="page1-options">
+            <div class="options-length">
+              <div class="options-length__text">Length: 8</div>
+              <input
+                type="range"
+                class="length-slider"
+                min="1"
+                max="20"
+                step="1"
+                value="8"
+                oninput="changeLengthValue()"
+              />
+            </div>
+            <div class="options-other">
+              <div class="options-left">
+                <div
+                  class="options-left-checkbox options-left__symbols"
+                  title="( e.g. @#$% )"
+                >
+                  <label class="b-contain">
+                    <span>Symbols</span>
+                    <input type="checkbox" onclick="symbolsCheck()" />
+                    <div class="b-input"></div>
+                  </label>
+                </div>
+                <div
+                  class="options-left-checkbox options-left__numbers"
+                  title="( e.g. 123456 )"
+                >
+                  <label class="b-contain">
+                    <span>Numbers</span>
+                    <input type="checkbox" onclick="numbersCheck()" />
+                    <div class="b-input"></div>
+                  </label>
+                </div>
+                <div
+                  class="options-left-checkbox options-left__ambiguous"
+                  title='( { } [ ] ( ) / \ " ` ~ , ; : . )'
+                >
+                  <label class="b-contain">
+                    <span>Ambiguous Characters</span>
+                    <input type="checkbox" onclick="ambiguousCheck()" />
+                    <div class="b-input"></div>
+                  </label>
+                </div>
+              </div>
+              <div class="options-right">
+                <div
+                  class="options-right-checkbox options-right__lowercase"
+                  title="( e.g. abcdefgh )"
+                >
+                  <label class="b-contain">
+                    <span>Lowercase Letters</span>
+                    <input type="checkbox" onclick="lowercaseCheck()" />
+                    <div class="b-input"></div>
+                  </label>
+                </div>
+                <div
+                  class="options-right-checkbox options-right__uppercase"
+                  title="( e.g. ABCDEFGH )"
+                >
+                  <label class="b-contain">
+                    <span>Uppercase Letters</span>
+                    <input type="checkbox" onclick="uppercaseCheck()" />
+                    <div class="b-input"></div>
+                  </label>
+                </div>
+                <div
+                  class="options-right-checkbox options-right__similar"
+                  title="( e.g. i, l, 1, L, o, 0, O )"
+                >
+                  <label class="b-contain">
+                    <span>Similar Characters</span>
+                    <input type="checkbox" onclick="similarCheck()" />
+                    <div class="b-input"></div>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="page1-results">
+            <div class="results-generated">
+              <div class="results__password"></div>
+              <div class="results__copy" title="Copy" onclick="copy()">
+                <ion-icon
+                  name="copy-outline"
+                  class="results__copy-icon"
+                ></ion-icon>
+              </div>
+              <div class="results__save" title="Save" onclick="save()">
+                <ion-icon
+                  name="bookmark-outline"
+                  class="results__save-icon"
+                ></ion-icon>
+              </div>
+            </div>
+            <div class="results-check">
+              <div class="strength"></div>
+              <div class="score">
+                <div class="ttc"></div>
+              </div>
+            </div>
+          </div>
+          <div class="page1-generate">
+            <div class="generate-div">
+              <div
+                class="generate-btn"
+                tabindex="0"
+                onclick="generatePassword()"
+              >
+                <ion-icon
+                  name="sync-outline"
+                  class="generate-btn__icon"
+                ></ion-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="page2"></div>
+        <div class="page3"></div>
+      </div>
+    </div>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
