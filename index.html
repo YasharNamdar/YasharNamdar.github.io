@@ -7,7 +7,7 @@
     <script src="script.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Password Generator by Yashar Namdar</title>
+    <title>PassBuilder by Yashar Namdar</title>
   </head>
   <body>
     <div class="header">
@@ -18,15 +18,24 @@
     </div>
     <div class="container">
       <div class="sidebar">
-        <div class="sidebar-item">
+        <div
+          class="sidebar-item btn sidebar-item1 selected"
+          onclick="setSidebarOn(this)"
+        >
           <ion-icon name="home-outline" class="sidebar-icon"></ion-icon>
           <div class="sidebar-item__text">Password Generator</div>
         </div>
-        <div class="sidebar-item">
+        <div
+          class="sidebar-item btn sidebar-item2"
+          onclick="setSidebarOn(this)"
+        >
           <ion-icon name="bookmark-outline" class="sidebar-icon"></ion-icon>
           <div class="sidebar-item__text">Saved Passwords</div>
         </div>
-        <div class="sidebar-item">
+        <div
+          class="sidebar-item btn sidebar-item3"
+          onclick="setSidebarOn(this)"
+        >
           <ion-icon name="settings-outline" class="sidebar-icon"></ion-icon>
           <div class="sidebar-item__text">Settings</div>
         </div>
@@ -143,13 +152,13 @@
           <div class="page1-results">
             <div class="results-generated">
               <div class="results__password"></div>
-              <div class="results__copy" title="Copy" onclick="copy()">
+              <div class="results__copy btn" title="Copy" onclick="copy()">
                 <ion-icon
                   name="copy-outline"
                   class="results__copy-icon"
                 ></ion-icon>
               </div>
-              <div class="results__save" title="Save" onclick="save()">
+              <div class="results__save btn" title="Save" onclick="savePage()">
                 <ion-icon
                   name="bookmark-outline"
                   class="results__save-icon"
@@ -166,7 +175,7 @@
           <div class="page1-generate">
             <div class="generate-div">
               <div
-                class="generate-btn"
+                class="generate-btn btn"
                 tabindex="0"
                 onclick="generatePassword()"
               >
@@ -178,10 +187,69 @@
             </div>
           </div>
         </div>
-        <div class="page2"></div>
+        <div class="page2">
+          <div class="saved-passwords">
+            <div class="saved-password btn" onclick="reveal(this)">
+              <div class="saved-password__logo">
+                <img
+                  src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://mail.google.com&size=256"
+                  class="saved-password__logo__img"
+                  alt="Gmail"
+                />
+              </div>
+              <span class="saved-password__text">Gmail</span>
+              <span class="saved-password__password"> Yashar1387 </span>
+            </div>
+          </div>
+        </div>
         <div class="page3"></div>
       </div>
+      <div class="page-denier"></div>
     </div>
+
+    <div class="page-save">
+      <div class="save-options">
+        <div class="save-options-name">
+          <input
+            type="text"
+            class="i-input save-input save-input-name"
+            placeholder="Name"
+            autocomplete="off"
+          />
+        </div>
+        <div class="save-options-website">
+          <input
+            type="text"
+            class="i-input save-input save-input-url"
+            placeholder="Website (e.g. www.google.com)"
+            autocomplete="off"
+          />
+        </div>
+        <div class="save-options-password">
+          <input
+            type="text"
+            class="i-input save-input save-input-password"
+            placeholder="Password"
+            autocomplete="off"
+          />
+        </div>
+      </div>
+      <div class="save-btns">
+        <div class="save-btn btn" onclick="savePageSave()">Save</div>
+        <div class="cancel-btn btn" onclick="savePageCancel()">Cancel</div>
+      </div>
+    </div>
+
+    <div class="page-reveal">
+      <div class="page-reveal-info">
+        <div class="page-reveal-password"></div>
+      </div>
+      <div class="page-reveal-btns">
+        <div class="delete-btn btn" onclick="deletePassword()">Delete</div>
+        <div class="cancel-btn btn" onclick="revealPageClose()">Close</div>
+      </div>
+    </div>
+
     <script
       type="module"
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
