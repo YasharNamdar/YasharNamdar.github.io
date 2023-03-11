@@ -230,6 +230,13 @@ function savePageSave() {
   document.getElementsByClassName("container")[0].style.filter = "none";
   document.getElementsByClassName("page-denier")[0].style.display = "none";
   document.getElementsByClassName("page-save")[0].style.display = "none";
+  for (
+    let j = 0;
+    j < document.getElementsByClassName("save-input").length;
+    j++
+  ) {
+    document.getElementsByClassName("save-input")[j].value = "";
+  }
 }
 
 let selectedPassword = undefined;
