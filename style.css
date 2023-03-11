@@ -4,9 +4,18 @@
   padding: 0;
   font-family: sans-serif;
 }
+/* dark mode
+span {
+  color: white;
+}
+
+body {
+  background-color: #1d1f1e;
+}
+*/
 
 ::selection {
-  background-color: #d1fae5;
+  background-color: #34d399;
 }
 
 /*********** Checkbox and Radio box************/
@@ -220,6 +229,7 @@ input[type="range"]:focus::-moz-range-thumb {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: inherit;
 }
 
 .header-title {
@@ -233,7 +243,8 @@ input[type="range"]:focus::-moz-range-thumb {
   margin-top: 5px;
   padding-left: 5px;
   user-select: none;
-  transition: all 250ms ease;
+  transition: box-shadow 250ms ease;
+  color: #064e3b;
 }
 
 .header-title:hover {
@@ -241,7 +252,7 @@ input[type="range"]:focus::-moz-range-thumb {
 }
 
 .header-title__text {
-  color: #064e3b;
+  color: black;
   margin-right: 10px;
 }
 
@@ -256,6 +267,7 @@ input[type="range"]:focus::-moz-range-thumb {
   height: calc(100vh - 50px);
   display: flex;
   padding: 15px;
+  background-color: inherit;
   /*filter: blur(5px);*/
 }
 
@@ -269,11 +281,12 @@ input[type="range"]:focus::-moz-range-thumb {
   display: flex;
   flex-direction: column;
   padding: 10px;
+  background-color: inherit;
 }
 
 .btn {
   background-color: #d1fae5;
-  transition: all 0.2s ease;
+  transition: box-shadow 0.2s ease;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -343,6 +356,7 @@ input[type="range"]:focus::-moz-range-thumb {
   padding-bottom: 0;
   max-width: 1000px;
   font-size: large;
+  background-color: inherit;
 }
 
 .page1 {
@@ -354,6 +368,7 @@ input[type="range"]:focus::-moz-range-thumb {
   border-radius: 40px;
   overflow: hidden;
   visibility: visible;
+  background-color: inherit;
 }
 
 .generate-btn {
@@ -368,7 +383,7 @@ input[type="range"]:focus::-moz-range-thumb {
   background-color: #d1fae5;
   border-radius: 75px;
   box-shadow: #34d399 0px 1px 4px;
-  transition: all 0.2s ease;
+  transition: box-shadow 0.2s ease;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -511,7 +526,7 @@ input[type="range"]:focus::-moz-range-thumb {
 .strength {
   margin-top: 10px;
   height: 6px;
-  transition: all 0.1s ease;
+  transition: width 0.1s ease;
   margin-right: auto;
   border-radius: 10px;
 }
@@ -560,7 +575,7 @@ input[type="range"]:focus::-moz-range-thumb {
   align-items: center;
   justify-content: center;
   border-radius: 50px;
-  transition: all 0.2s ease;
+  transition: box-shadow 0.2s ease;
   cursor: pointer;
   box-shadow: #34d399 0px 1px 4px;
   transform: all 0.2s ease;
@@ -590,11 +605,12 @@ input[type="range"]:focus::-moz-range-thumb {
   flex-direction: column;
   overflow: hidden;
   display: none;
+  background-color: inherit;
 }
 
 .saved-passwords {
   padding-top: 10px;
-  padding-left: 15px;
+  padding-left: 20px;
   display: grid;
   justify-content: space-between;
   grid-template-columns: 1fr 1fr 1fr;
@@ -629,6 +645,7 @@ input[type="range"]:focus::-moz-range-thumb {
 
 .saved-password__text {
   margin-bottom: 25px;
+  color: black;
 }
 
 .saved-password__password {
@@ -663,6 +680,7 @@ input[type="range"]:focus::-moz-range-thumb {
   flex-direction: column;
   padding: 15px;
   display: none;
+  background-color: inherit;
 }
 
 .save-btns {
@@ -727,6 +745,7 @@ input[type="range"]:focus::-moz-range-thumb {
   padding: 15px;
   padding-left: 5px;
   display: none;
+  background-color: inherit;
 }
 
 .page-reveal-info {

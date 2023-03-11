@@ -152,15 +152,9 @@ function setSidebarOn(element) {
   if (element.classList[2] == "sidebar-item1") {
     document.getElementsByClassName("page1")[0].style.display = "flex";
     document.getElementsByClassName("page2")[0].style.display = "none";
-    document.getElementsByClassName("page3")[0].style.display = "none";
   } else if (element.classList[2] == "sidebar-item2") {
     document.getElementsByClassName("page2")[0].style.display = "flex";
     document.getElementsByClassName("page1")[0].style.display = "none";
-    document.getElementsByClassName("page3")[0].style.display = "none";
-  } else if (element.classList[2] == "sidebar-item3") {
-    document.getElementsByClassName("page3")[0].style.display = "flex";
-    document.getElementsByClassName("page1")[0].style.display = "none";
-    document.getElementsByClassName("page2")[0].style.display = "none";
   }
 }
 
@@ -258,4 +252,42 @@ function revealPageClose() {
 function deletePassword() {
   selectedPassword.remove();
   revealPageClose();
+}
+
+let darkMode = false;
+
+function setDarkModeOn() {
+  if (darkMode) {
+    document.getElementsByTagName("body")[0].style.backgroundColor = "white";
+    for (
+      let index = 0;
+      index < document.getElementsByTagName("span").length;
+      index++
+    ) {
+      document.getElementsByTagName("span")[index].style.color = "black";
+    }
+    darkMode = false;
+  } else {
+    document.getElementsByTagName("body")[0].style.backgroundColor = "#1f1f1f";
+    for (
+      let index = 0;
+      index < document.getElementsByTagName("span").length;
+      index++
+    ) {
+      document.getElementsByTagName("span")[index].style.color = "white";
+    }
+    for (
+      let jj = 0;
+      jj < document.getElementsByClassName("saved-password__text").length;
+      jj++
+    ) {
+      document.getElementsByClassName("saved-password__text")[jj].style.color =
+        "#064e3b";
+      ("#65a30d");
+    }
+    document.getElementsByClassName("header-title__text")[0].style.color =
+      "black";
+
+    darkMode = true;
+  }
 }

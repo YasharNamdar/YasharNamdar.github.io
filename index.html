@@ -32,20 +32,17 @@
           <ion-icon name="bookmark-outline" class="sidebar-icon"></ion-icon>
           <div class="sidebar-item__text">Saved Passwords</div>
         </div>
-        <div
-          class="sidebar-item btn sidebar-item3"
-          onclick="setSidebarOn(this)"
-        >
-          <ion-icon name="settings-outline" class="sidebar-icon"></ion-icon>
-          <div class="sidebar-item__text">Settings</div>
+        <div class="sidebar-item btn sidebar-item3" onclick="setDarkModeOn()">
+          <ion-icon name="contrast-outline" class="sidebar-icon"></ion-icon>
+          <div class="sidebar-item__text">Dark Mode</div>
         </div>
-        <div class="credits">2023 by Yashar Namdar</div>
+        <span class="credits">2023 by Yashar Namdar</span>
       </div>
       <div class="page">
         <div class="page1">
           <div class="page1-options">
             <div class="options-length">
-              <div class="options-length__text">Length: 8</div>
+              <span class="options-length__text">Length: 8</span>
               <input
                 type="range"
                 class="length-slider"
@@ -151,7 +148,7 @@
           </div>
           <div class="page1-results">
             <div class="results-generated">
-              <div class="results__password"></div>
+              <span class="results__password"></span>
               <div class="results__copy btn" title="Copy" onclick="copy()">
                 <ion-icon
                   name="copy-outline"
@@ -168,7 +165,7 @@
             <div class="results-check">
               <div class="strength"></div>
               <div class="score">
-                <div class="ttc"></div>
+                <span class="ttc"></span>
               </div>
             </div>
           </div>
@@ -194,15 +191,14 @@
                 <img
                   src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://mail.google.com&size=256"
                   class="saved-password__logo__img"
-                  alt="Gmail"
+                  alt="Example"
                 />
               </div>
-              <span class="saved-password__text">Gmail</span>
-              <span class="saved-password__password"> Yashar1387 </span>
+              <span class="saved-password__text">Example</span>
+              <span class="saved-password__password"> Example123 </span>
             </div>
           </div>
         </div>
-        <div class="page3"></div>
       </div>
       <div class="page-denier"></div>
     </div>
@@ -242,7 +238,7 @@
 
     <div class="page-reveal">
       <div class="page-reveal-info">
-        <div class="page-reveal-password"></div>
+        <span class="page-reveal-password"></span>
       </div>
       <div class="page-reveal-btns">
         <div class="delete-btn btn" onclick="deletePassword()">Delete</div>
