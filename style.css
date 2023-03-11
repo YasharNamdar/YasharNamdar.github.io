@@ -14,6 +14,10 @@ body {
 }
 */
 
+body {
+  background-color: white;
+}
+
 ::selection {
   background-color: #34d399;
 }
@@ -624,7 +628,7 @@ input[type="range"]:focus::-moz-range-thumb {
   transform: translate(-50%, -50%);
   border-radius: 30px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  background-color: white;
+  background-color: inherit;
   display: flex;
   flex-direction: column;
   padding: 15px;
@@ -688,7 +692,7 @@ input[type="range"]:focus::-moz-range-thumb {
   transform: translate(-50%, -50%);
   border-radius: 30px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  background-color: white;
+  background-color: inherit;
   display: flex;
   flex-direction: column;
   padding: 15px;
