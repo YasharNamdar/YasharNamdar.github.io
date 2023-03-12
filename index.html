@@ -185,19 +185,7 @@
           </div>
         </div>
         <div class="page2">
-          <div class="saved-passwords">
-            <div class="saved-password btn" onclick="reveal(this)">
-              <div class="saved-password__logo">
-                <img
-                  src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://mail.google.com&size=256"
-                  class="saved-password__logo__img"
-                  alt="Example"
-                />
-              </div>
-              <span class="saved-password__text">Example</span>
-              <span class="saved-password__password"> Example123 </span>
-            </div>
-          </div>
+          <div class="saved-passwords" id="saved-passwords"></div>
         </div>
       </div>
       <div class="page-denier"></div>
@@ -239,6 +227,13 @@
     <div class="page-reveal">
       <div class="page-reveal-info">
         <span class="page-reveal-password"></span>
+        <div
+          class="results__copy btn reveal__copy"
+          title="Copy"
+          onclick="copyPassword()"
+        >
+          <ion-icon name="copy-outline" class="results__copy-icon"></ion-icon>
+        </div>
       </div>
       <div class="page-reveal-btns">
         <div class="delete-btn btn" onclick="deletePassword()">Delete</div>

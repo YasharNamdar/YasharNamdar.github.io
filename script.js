@@ -126,6 +126,11 @@ function copy() {
   }
 }
 
+function copyPassword() {
+  console.log(selectedPassword);
+  navigator.clipboard.writeText(selectedPassword.lastElementChild.innerHTML);
+}
+
 function changeSidebar(e) {
   e[0].classList.addClass("selected");
 }
@@ -173,7 +178,7 @@ function savePage() {
   }
 }
 
-function savePassword(name, url, password) {
+function savePassword(name, url, password, bool) {
   let savedPassword = document.createElement("div");
   savedPassword.setAttribute("class", "saved-password btn");
   savedPassword.setAttribute("onclick", "reveal(this)");
@@ -198,9 +203,10 @@ function savePassword(name, url, password) {
   savedPasswordLogo.appendChild(savedPasswordLogoImage);
   savedPassword.appendChild(savedPasswordText);
   savedPassword.appendChild(savedPasswordPassword);
-  document
-    .getElementsByClassName("saved-passwords")[0]
-    .appendChild(savedPassword);
+  document.getElementById("saved-passwords").appendChild(savedPassword);
+  if (bool) {
+    saveNewPassword(name, url, password);
+  }
 }
 
 function savePageCancel() {
@@ -209,6 +215,7 @@ function savePageCancel() {
   document.getElementsByClassName("page-save")[0].style.display = "none";
   document.getElementsByClassName("save-input-name")[0].style.borderColor =
     "#047857";
+  document.getElementsByClassName("save-input-name")[0].style.color = "black";
   for (
     let j = 0;
     j < document.getElementsByClassName("save-input").length;
@@ -224,16 +231,29 @@ function savePageSave() {
       "#dc2626";
     return;
   }
+  if (
+    passwordNames.includes(
+      document.getElementsByClassName("save-input-name")[0].value
+    )
+  ) {
+    document.getElementsByClassName("save-input-name")[0].value =
+      "Name Already Exists";
+    document.getElementsByClassName("save-input-name")[0].style.color =
+      "#dc2626";
+    return;
+  }
   savePassword(
     document.getElementsByClassName("save-input-name")[0].value,
     document.getElementsByClassName("save-input-url")[0].value,
-    document.getElementsByClassName("save-input-password")[0].value
+    document.getElementsByClassName("save-input-password")[0].value,
+    true
   );
   document.getElementsByClassName("container")[0].style.filter = "none";
   document.getElementsByClassName("page-denier")[0].style.display = "none";
   document.getElementsByClassName("page-save")[0].style.display = "none";
   document.getElementsByClassName("save-input-name")[0].style.borderColor =
     "#047857";
+  document.getElementsByClassName("save-input-name")[0].style.color = "black";
   for (
     let j = 0;
     j < document.getElementsByClassName("save-input").length;
@@ -263,6 +283,9 @@ function revealPageClose() {
 function deletePassword() {
   selectedPassword.remove();
   revealPageClose();
+  deleteSavedPassword(
+    selectedPassword.firstElementChild.nextElementSibling.innerHTML.toString()
+  );
 }
 
 let darkMode = false;
@@ -302,3 +325,47 @@ function setDarkModeOn() {
     darkMode = true;
   }
 }
+
+let passwordNames = [];
+if (JSON.parse(localStorage.getItem("passwordNames"))) {
+  passwordNames = JSON.parse(localStorage.getItem("passwordNames"));
+}
+
+function saveNewPassword(name, url, password) {
+  let info = [];
+  info[0] = name;
+  info[1] = url;
+  info[2] = password;
+  localStorage.setItem(name, JSON.stringify(info));
+  passwordNames.push(name);
+  localStorage.setItem("passwordNames", JSON.stringify(passwordNames));
+}
+
+function deleteSavedPassword(name) {
+  localStorage.removeItem(name);
+  let indexOfItem = passwordNames.indexOf("name");
+  passwordNames.splice(indexOfItem, 1);
+  localStorage.setItem("passwordNames", JSON.stringify(passwordNames));
+}
+
+function loadPassword(n, bool) {
+  savePassword(
+    JSON.parse(localStorage.getItem(n))[0],
+    JSON.parse(localStorage.getItem(n))[1],
+    JSON.parse(localStorage.getItem(n))[2],
+    bool
+  );
+}
+
+function loadPasswords() {
+  if (passwordNames.length != 0) {
+    for (let index = 0; index < passwordNames.length; index++) {
+      let name = passwordNames[index];
+      loadPassword(name, false);
+    }
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  loadPasswords();
+});

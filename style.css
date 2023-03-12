@@ -16,6 +16,7 @@ body {
 
 body {
   background-color: white;
+  overflow: hidden;
 }
 
 ::selection {
@@ -109,6 +110,10 @@ body {
   border-color: #047857;
 }
 
+ion-icon {
+  pointer-events: none;
+}
+
 /*********** Baseline, reset styles ***********/
 input[type="range"] {
   -webkit-appearance: none;
@@ -127,7 +132,7 @@ input[type="range"]:focus {
 /******** Chrome, Safari, Opera and Edge Chromium styles ********/
 /* slider track */
 input[type="range"]::-webkit-slider-runnable-track {
-  background-color: #d1fae5;
+  background-color: #ecfdf5;
   border-radius: 0.5rem;
   height: 10px;
   transition: all 0.1s ease;
@@ -146,8 +151,8 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 input[type="range"]:focus::-webkit-slider-thumb {
-  outline: 3px solid #064e3b;
-  outline-offset: 0.125rem;
+  box-shadow: #189874 0px 1px 5px;
+  transform: scale(1.5);
 }
 
 /*********** Firefox styles ***********/
@@ -161,7 +166,6 @@ input[type="range"]::-moz-range-track {
 
 /* slider thumb */
 input[type="range"]::-moz-range-thumb {
-  background-color: #059669;
   border: none; /*Removes extra border that FF applies*/
   border-radius: 0.5rem;
   height: 1rem;
@@ -567,7 +571,7 @@ input[type="range"]:focus::-moz-range-thumb {
   display: grid;
   justify-content: space-between;
   grid-template-columns: 1fr 1fr 1fr;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
   padding-bottom: 10px;
 }
@@ -703,8 +707,12 @@ input[type="range"]:focus::-moz-range-thumb {
   width: 100%;
   height: calc(80% - 10px);
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.reveal__copy {
+  margin: auto;
 }
 
 .page-reveal-btns {
@@ -737,7 +745,7 @@ input[type="range"]:focus::-moz-range-thumb {
 }
 
 .page-reveal-password {
-  width: 100%;
+  width: calc(100% - 50px);
   display: flex;
   align-items: center;
   justify-content: center;
