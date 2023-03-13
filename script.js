@@ -7,6 +7,9 @@ function changeLengthValue() {
   let passwordLength = sliderValue[0].value;
 }
 
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty("--vh", `${vh}px`);
+
 let symbolsCheckValue = false;
 let numbersCheckValue = true;
 let ambiguousCheckValue = false;
