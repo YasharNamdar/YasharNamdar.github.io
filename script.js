@@ -219,6 +219,9 @@ function savePageCancel() {
   document.getElementsByClassName("save-input-name")[0].style.borderColor =
     "#047857";
   document.getElementsByClassName("save-input-name")[0].style.color = "black";
+  document
+    .getElementsByClassName("save-input-name")[0]
+    .setAttribute("placeholder", "Name");
   for (
     let j = 0;
     j < document.getElementsByClassName("save-input").length;
@@ -239,12 +242,15 @@ function savePageSave() {
       document.getElementsByClassName("save-input-name")[0].value
     )
   ) {
-    document.getElementsByClassName("save-input-name")[0].value =
-      "Name Already Exists";
-    document.getElementsByClassName("save-input-name")[0].style.color =
-      "#dc2626";
+    document
+      .getElementsByClassName("save-input-name")[0]
+      .setAttribute("placeholder", "Name Already Exists");
+    document.getElementsByClassName("save-input-name")[0].value = "";
     return;
   }
+  document
+    .getElementsByClassName("save-input-name")[0]
+    .setAttribute("placeholder", "Name Already Exists");
   savePassword(
     document.getElementsByClassName("save-input-name")[0].value,
     document.getElementsByClassName("save-input-url")[0].value,
