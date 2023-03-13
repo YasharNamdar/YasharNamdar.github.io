@@ -8,7 +8,7 @@ function changeLengthValue() {
 }
 
 let symbolsCheckValue = false;
-let numbersCheckValue = false;
+let numbersCheckValue = true;
 let ambiguousCheckValue = false;
 let lowercaseCheckValue = false;
 let uppercaseCheckValue = false;
@@ -288,7 +288,12 @@ function deletePassword() {
   );
 }
 
-let darkMode = false;
+let darkMode = localStorage.darkMode;
+if (darkMode == "true") {
+  darkMode = false;
+} else {
+  darkMode = true;
+}
 
 function setDarkModeOn() {
   if (darkMode) {
@@ -301,6 +306,7 @@ function setDarkModeOn() {
       document.getElementsByTagName("span")[index].style.color = "black";
     }
     darkMode = false;
+    localStorage.setItem("darkMode", "false");
   } else {
     document.getElementsByTagName("body")[0].style.backgroundColor = "#1f1f1f";
     for (
@@ -323,6 +329,7 @@ function setDarkModeOn() {
       "black";
 
     darkMode = true;
+    localStorage.setItem("darkMode", "true");
   }
 }
 
@@ -367,5 +374,6 @@ function loadPasswords() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+  setDarkModeOn();
   loadPasswords();
 });

@@ -4,6 +4,11 @@
   padding: 0;
   font-family: sans-serif;
 }
+
+:root {
+  --sidebar-width: 5rem;
+}
+
 /* dark mode
 span {
   color: white;
@@ -16,6 +21,9 @@ body {
 
 body {
   background-color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
   overflow: hidden;
 }
 
@@ -87,7 +95,7 @@ body {
 .b-contain:hover input[type="checkbox"]:not([disabled]) ~ .b-input,
 .b-contain input[type="checkbox"]:focus ~ .b-input {
   background: #ecfdf5;
-  border-color: #047857;
+  border-color: #047907;
 }
 
 .b-contain input:focus ~ .b-input {
@@ -96,7 +104,7 @@ body {
 
 .b-contain input[type="checkbox"]:checked ~ .b-input {
   background: #10b981;
-  border-color: #047857;
+  border-color: #047907;
 }
 
 .b-contain input[type="checkbox"]:disabled ~ .b-input {
@@ -107,10 +115,14 @@ body {
 .b-contain:hover input[type="checkbox"]:not([disabled]):checked ~ .b-input,
 .b-contain input[type="checkbox"]:checked:focus ~ .b-input {
   background: #059669;
-  border-color: #047857;
+  border-color: #047907;
 }
 
 ion-icon {
+  pointer-events: none;
+}
+
+img {
   pointer-events: none;
 }
 
@@ -181,46 +193,35 @@ input[type="range"]:focus::-moz-range-thumb {
 
 .header {
   width: 100vw;
-  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: inherit;
+  position: absolute;
 }
 
 .header-title {
-  width: 200px;
+  width: auto;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   background-color: #ecfdf5;
   border-radius: 40px;
-  height: 40px;
   margin-top: 5px;
   padding-left: 5px;
   user-select: none;
-  transition: box-shadow 250ms ease;
   color: #064e3b;
-}
-
-.header-title:hover {
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-}
-
-.header-title__text {
-  color: black;
-  margin-right: 10px;
+  padding: 5px 15px 5px 10px;
 }
 
 .header-icon {
-  font-size: 32px;
-  margin-right: 5px;
+  font-size: 2rem;
   color: #064e3b;
 }
 
 .container {
+  flex-grow: 1;
   width: 100vw;
-  height: calc(100vh - 50px);
   display: flex;
   padding: 15px;
   background-color: inherit;
@@ -228,8 +229,8 @@ input[type="range"]:focus::-moz-range-thumb {
 }
 
 .sidebar {
-  position: relative;
-  width: 220px;
+  max-width: 275px;
+  width: 30%;
   height: 100%;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   border-radius: 40px;
@@ -238,6 +239,125 @@ input[type="range"]:focus::-moz-range-thumb {
   flex-direction: column;
   padding: 10px;
   background-color: inherit;
+  margin-right: 15px;
+  min-width: calc(var(--sidebar-width));
+  max-height: calc((100vh - 30px));
+  position: sticky;
+  top: 15px;
+  z-index: 88;
+}
+
+@media only screen and (max-width: 768px) {
+  .header {
+    display: none;
+  }
+  .sidebar-item__text {
+    display: none;
+  }
+  .sidebar {
+    width: var(--sidebar-width);
+  }
+  .page {
+    min-width: calc(100% - var(--sidebar-width));
+    font-size: 1rem !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .saved-passwords {
+    margin-right: 15px;
+  }
+  .saved-password {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px !important;
+  }
+  .credits::before {
+    content: "Yashar" !important;
+  }
+  .results__password {
+    font-size: 1rem !important;
+    margin-top: 10px;
+  }
+  .results-check {
+    margin-top: 20px !important;
+    width: 90% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .ttc {
+    font-size: 1rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .results-generated {
+    flex-direction: column-reverse !important;
+  }
+  .results__save__page1 {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 10px !important;
+    margin-top: 0 !important;
+    width: 90% !important;
+  }
+  .results__copy__page1 {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 10px !important;
+    margin-top: 0 !important;
+    width: 90% !important;
+  }
+  .generate-div {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 10px !important;
+    margin-top: auto !important;
+    width: 90% !important;
+    border-radius: 30px !important;
+    height: 50% !important;
+  }
+  .generate-btn {
+    width: 100% !important;
+    border-radius: 30px !important;
+    height: 100% !important;
+  }
+  .generate-btn:focus {
+    transform: none !important;
+  }
+  .generate-btn__icon {
+    font-size: 4rem !important;
+  }
+  .options-other {
+    flex-direction: column;
+  }
+  .options-left-checkbox {
+    margin-right: auto !important;
+  }
+  .options-left {
+    width: 90% !important;
+  }
+  .options-right {
+    width: 90% !important;
+  }
+  .page1-results {
+    margin-top: 30% !important;
+  }
+
+  .options-length {
+    width: 90% !important;
+  }
+}
+
+@media only screen and (max-width: 610px) {
+  .saved-passwords {
+    grid-template-columns: 1fr 1fr !important;
+    padding-right: 15px !important;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .saved-passwords {
+    grid-template-columns: 1fr !important;
+    padding-right: 15px !important;
+  }
 }
 
 .btn {
@@ -290,14 +410,18 @@ input[type="range"]:focus::-moz-range-thumb {
 }
 
 .sidebar-icon {
-  font-size: 24px;
+  font-size: 1.5rem;
 }
 
 .credits {
-  font-size: x-small;
+  font-size: 0.675rem;
   margin-top: auto;
   align-self: center;
   margin-bottom: 10px;
+}
+
+.credits::before {
+  content: "2023 by Yashar Namdar";
 }
 
 .page {
@@ -306,13 +430,13 @@ input[type="range"]:focus::-moz-range-thumb {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: calc(100% - 220px);
-  height: 100%;
-  padding: 50px;
+  padding: 5%;
   padding-bottom: 0;
-  max-width: 1000px;
   font-size: large;
   background-color: inherit;
+  max-width: 1000px;
+  width: 100%;
+  overflow-y: auto;
 }
 
 .page1 {
@@ -447,15 +571,9 @@ input[type="range"]:focus::-moz-range-thumb {
   margin-top: auto;
   margin-bottom: auto;
   display: flex;
-  flex-direction: row-reverse;
   align-items: center;
   padding-top: 2px;
   user-select: none;
-}
-
-.options-right-checkbox * {
-  margin-right: auto;
-  margin-left: 20px;
 }
 
 .page1-results {
@@ -508,11 +626,10 @@ input[type="range"]:focus::-moz-range-thumb {
 }
 
 .results__copy {
-  width: 40px;
-  height: 40px;
   transform: all 0.2s ease;
   margin-right: 10px;
   margin-left: 10px;
+  padding: 8px;
 }
 
 .results__copy:hover {
@@ -526,8 +643,7 @@ input[type="range"]:focus::-moz-range-thumb {
 }
 
 .results__save {
-  width: 40px;
-  height: 40px;
+  padding: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -560,7 +676,7 @@ input[type="range"]:focus::-moz-range-thumb {
   width: 100%;
   height: 100%;
   flex-direction: column;
-  overflow: hidden;
+  overflow-y: auto;
   display: none;
   background-color: inherit;
 }
@@ -572,11 +688,12 @@ input[type="range"]:focus::-moz-range-thumb {
   justify-content: space-between;
   grid-template-columns: 1fr 1fr 1fr;
   overflow-y: auto;
-  overflow-x: hidden;
   padding-bottom: 10px;
 }
 
 .saved-password {
+  min-width: 90%;
+  max-width: 90%;
   border-radius: 30px;
   margin-right: 20px;
   margin-bottom: 20px;
@@ -602,6 +719,7 @@ input[type="range"]:focus::-moz-range-thumb {
 
 .saved-password__text {
   margin-bottom: 25px;
+  height: auto;
   color: black;
 }
 
@@ -624,7 +742,8 @@ input[type="range"]:focus::-moz-range-thumb {
 .page-save {
   position: absolute;
   z-index: 20;
-  width: 350px;
+  width: 90%;
+  max-width: 350px;
   height: 250px;
   top: 40%;
   left: 50%;
@@ -675,7 +794,7 @@ input[type="range"]:focus::-moz-range-thumb {
   font-size: medium;
   padding: 15px;
   border-radius: 50px;
-  border: 1px solid #047857;
+  border: 1px solid #047907;
   outline: none;
 }
 
@@ -687,7 +806,8 @@ input[type="range"]:focus::-moz-range-thumb {
 .page-reveal {
   position: absolute;
   z-index: 20;
-  width: 350px;
+  width: 90%;
+  max-width: 350px;
   height: 150px;
   top: 40%;
   left: 50%;

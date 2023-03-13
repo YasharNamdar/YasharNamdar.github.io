@@ -24,20 +24,20 @@
           onclick="setSidebarOn(this)"
         >
           <ion-icon name="home-outline" class="sidebar-icon"></ion-icon>
-          <div class="sidebar-item__text">Password Generator</div>
+          <div class="sidebar-item__text">PassBuilder</div>
         </div>
         <div
           class="sidebar-item btn sidebar-item2"
           onclick="setSidebarOn(this)"
         >
           <ion-icon name="bookmark-outline" class="sidebar-icon"></ion-icon>
-          <div class="sidebar-item__text">Saved Passwords</div>
+          <div class="sidebar-item__text">Passwords</div>
         </div>
         <div class="sidebar-item btn sidebar-item3" onclick="setDarkModeOn()">
           <ion-icon name="contrast-outline" class="sidebar-icon"></ion-icon>
           <div class="sidebar-item__text">Dark Mode</div>
         </div>
-        <span class="credits">2023 by Yashar Namdar</span>
+        <span class="credits"></span>
       </div>
       <div class="page">
         <div class="page1">
@@ -58,6 +58,21 @@
             <div class="options-other">
               <div class="options-left">
                 <div
+                  class="options-left-checkbox options-left__numbers"
+                  title="( e.g. 123456 )"
+                >
+                  <label class="b-contain">
+                    <span>Numbers</span>
+                    <input
+                      type="checkbox"
+                      onclick="numbersCheck()"
+                      autocomplete="off"
+                      checked="true"
+                    />
+                    <div class="b-input"></div>
+                  </label>
+                </div>
+                <div
                   class="options-left-checkbox options-left__symbols"
                   title="( e.g. @#$% )"
                 >
@@ -71,20 +86,7 @@
                     <div class="b-input"></div>
                   </label>
                 </div>
-                <div
-                  class="options-left-checkbox options-left__numbers"
-                  title="( e.g. 123456 )"
-                >
-                  <label class="b-contain">
-                    <span>Numbers</span>
-                    <input
-                      type="checkbox"
-                      onclick="numbersCheck()"
-                      autocomplete="off"
-                    />
-                    <div class="b-input"></div>
-                  </label>
-                </div>
+
                 <div
                   class="options-left-checkbox options-left__ambiguous"
                   title='( { } [ ] ( ) / \ " ` ~ , ; : . )'
@@ -149,13 +151,21 @@
           <div class="page1-results">
             <div class="results-generated">
               <span class="results__password"></span>
-              <div class="results__copy btn" title="Copy" onclick="copy()">
+              <div
+                class="results__copy results__copy__page1 btn"
+                title="Copy"
+                onclick="copy()"
+              >
                 <ion-icon
                   name="copy-outline"
                   class="results__copy-icon"
                 ></ion-icon>
               </div>
-              <div class="results__save btn" title="Save" onclick="savePage()">
+              <div
+                class="results__save results__save__page1 btn"
+                title="Save"
+                onclick="savePage()"
+              >
                 <ion-icon
                   name="bookmark-outline"
                   class="results__save-icon"
