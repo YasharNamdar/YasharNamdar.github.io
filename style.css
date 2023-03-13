@@ -322,6 +322,9 @@ input[type="range"]:focus::-moz-range-thumb {
   }
   .generate-btn:focus {
     transform: none !important;
+    -webkit-transform: none !important;
+    animation: none !important;
+    -webkit-animation: none !important;
   }
   .generate-btn__icon {
     font-size: 4rem !important;
