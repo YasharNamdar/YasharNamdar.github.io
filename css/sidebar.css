@@ -1,0 +1,62 @@
+
+.sidebar {
+    max-width: 275px;
+    width: 30%;
+    height: 100%;
+    box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+    border-radius: 40px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: inherit;
+    margin-right: 15px;
+    min-width: calc(var(--sidebar-width));
+    max-height: calc((100vh - 30px));
+    position: sticky;
+    top: 15px;
+    z-index: 88;
+}
+
+.sidebar-item {
+    height: 60px;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.selected {
+    background-color: #6ee7b7;
+    box-shadow: #10b981 0 1px 4px;
+}
+
+.selected:hover {
+    background-color: #34d399;
+    box-shadow: #10b981 0 8px 18px;
+}
+
+.selected:active {
+    background-color: #10b981;
+}
+
+.sidebar-item__text {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sidebar-icon {
+    font-size: 1.5rem;
+}
+
+.credits {
+    font-size: 0.675rem;
+    margin-top: auto;
+    align-self: center;
+    margin-bottom: 10px;
+}
+
+.credits::before {
+    content: "2023 by Yashar Namdar";
+}

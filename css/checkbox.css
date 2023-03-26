@@ -1,0 +1,87 @@
+
+/*********** Checkbox and Radio box************/
+
+.b-contain *,
+.b-contain *::before,
+.b-contain *::after {
+    box-sizing: content-box !important;
+}
+
+.b-contain input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.b-contain span {
+    line-height: 1.5;
+    font-family: inherit;
+}
+
+.b-contain {
+    display: table;
+    position: relative;
+    padding-left: 2rem;
+    cursor: pointer;
+    margin-bottom: 0.4rem;
+}
+
+.b-contain input[type="checkbox"] ~ .b-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1.5rem;
+    width: 1.5rem;
+    background: #f1f5f9;
+    transition: background 250ms;
+    border: 1px solid #94a3b8;
+    border-radius: 1rem;
+}
+
+.b-contain input[type="checkbox"] ~ .b-input::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 9px;
+    top: 5px;
+    width: 0.3rem;
+    height: 0.6rem;
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    transition: background 250ms;
+    transform: rotate(45deg);
+}
+
+.b-contain input[type="checkbox"]:disabled ~ .b-input::after {
+    border-color: #ffffff;
+}
+
+.b-contain input:checked ~ .b-input::after {
+    display: block;
+}
+
+.b-contain:hover input[type="checkbox"]:not([disabled]) ~ .b-input,
+.b-contain input[type="checkbox"]:focus ~ .b-input {
+    background: #ecfdf5;
+    border-color: #047907;
+}
+
+.b-contain input:focus ~ .b-input {
+    box-shadow: 0 0 0 2px #10b981;
+}
+
+.b-contain input[type="checkbox"]:checked ~ .b-input {
+    background: #10b981;
+    border-color: #047907;
+}
+
+.b-contain input[type="checkbox"]:disabled ~ .b-input {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.b-contain:hover input[type="checkbox"]:not([disabled]):checked ~ .b-input,
+.b-contain input[type="checkbox"]:checked:focus ~ .b-input {
+    background: #059669;
+    border-color: #047907;
+}

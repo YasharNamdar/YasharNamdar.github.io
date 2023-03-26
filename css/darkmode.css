@@ -1,0 +1,7 @@
+span.darkmode {
+    color: white;
+}
+
+body.darkmode {
+    background-color: #1d1f1e;
+}
