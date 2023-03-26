@@ -3,6 +3,7 @@ import * as passwordManager from "./passwordManager.js";
 export function savePageReveal() {
     document.querySelector(".container").style.filter = "blur(5px)";
     document.querySelector(".page-denier").style.display = "block";
+    document.querySelector(".sidebar").style.pointerEvents = "none";
     document.querySelector(".page-save").style.display = "flex";
     if (
         document.querySelector(".results__password").innerHTML !== "" &&
@@ -18,6 +19,7 @@ export function savePageReveal() {
 export function savePageCancel() {
     document.querySelector(".container").style.filter = "none";
     document.querySelector(".page-denier").style.display = "none";
+    document.querySelector(".sidebar").style.pointerEvents = "auto";
     document.querySelector(".page-save").style.display = "none";
     document.querySelector(".save-input-name").style.borderColor = "#047857";
     document.querySelector(".save-input-name").style.color = "black";
@@ -55,6 +57,7 @@ export function savePageConfirm() {
     );
     document.querySelector(".container").style.filter = "none";
     document.querySelector(".page-denier").style.display = "none";
+    document.querySelector(".sidebar").style.pointerEvents = "auto";
     document.querySelector(".page-save").style.display = "none";
     document.querySelector(".save-input-name").classList.remove("i-input-warning")
     document.querySelector(".save-input-name").style.color = "black";
