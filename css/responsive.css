@@ -108,3 +108,9 @@
         padding-right: 15px !important;
     }
 }
+
+@media only screen and (max-height: 700px){
+    .results__copy__page1{
+        display: none;
+    }
+}
