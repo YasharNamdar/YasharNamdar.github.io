@@ -55,3 +55,18 @@
 .saved-password__password {
     display: none;
 }
+
+.no-passwords{
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: gray;
+    height: 100%;
+    width: 100%;
+    user-select: none;
+}
+
+.no-passwords.persian{
+    font-size: 2.5rem !important;
+}

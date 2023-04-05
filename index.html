@@ -17,16 +17,22 @@
     <script src="js/zxcvbn.js"></script>
     <script src="js/script.js" type="module"></script>
 
-    <link rel="icon" href="icon/favicon.png" />
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png">
+    <link rel="mask-icon" href="icon/safari-pinned-tab.svg" color="#34d399">
+    <meta name="apple-mobile-web-app-title" content="Passbuilder">
+    <meta name="application-name" content="Passbuilder">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
     <title>PassBuilder by Yashar Namdar</title>
   </head>
   <body>
     <div class="header">
       <div class="header-title">
-        <ion-icon name="dice-outline" class="header-icon"></ion-icon>
+        <ion-icon name="key" class="header-icon"></ion-icon>
         <div class="header-title__text">PassBuilder</div>
       </div>
     </div>
@@ -34,15 +40,19 @@
       <div class="sidebar">
         <div class="sidebar-item btn sidebar-item1 sidebar-btn selected">
           <ion-icon name="home-outline" class="sidebar-icon"></ion-icon>
-          <div class="sidebar-item__text">PassBuilder</div>
+          <div class="sidebar-item__text title-passbuilder ">PassBuilder</div>
         </div>
         <div class="sidebar-item btn sidebar-btn sidebar-item2">
           <ion-icon name="bookmark-outline" class="sidebar-icon"></ion-icon>
-          <div class="sidebar-item__text">Passwords</div>
+          <div class="sidebar-item__text title-passwords">Passwords</div>
         </div>
         <div class="sidebar-item btn sidebar-btn sidebar-item3">
           <ion-icon name="contrast-outline" class="sidebar-icon"></ion-icon>
-          <div class="sidebar-item__text">Dark Mode</div>
+          <div class="sidebar-item__text title-darkmode">Dark Mode</div>
+        </div>
+        <div class="sidebar-item btn sidebar-btn sidebar-item4 btn-translate">
+          <ion-icon name="language-outline" class="sidebar-icon"></ion-icon>
+          <div class="sidebar-item__text persian title-translate">تغییر زبان</div>
         </div>
         <span class="credits"></span>
       </div>
@@ -68,7 +78,7 @@
                   title="( e.g. 123456 )"
                 >
                   <label class="b-contain">
-                    <span>Numbers</span>
+                    <span class="numbers">Numbers</span>
                     <input
                       type="checkbox"
                       class="numbers-check"
@@ -83,7 +93,7 @@
                   title="( e.g. @#$% )"
                 >
                   <label class="b-contain">
-                    <span>Symbols</span>
+                    <span class="symbols">Symbols</span>
                     <input
                       type="checkbox"
                       class="symbols-check"
@@ -98,7 +108,7 @@
                   title='( { } [ ] ( ) / \ " ` ~ , ; : . )'
                 >
                   <label class="b-contain">
-                    <span>Ambiguous Characters</span>
+                    <span class="ambiguous">Ambiguous Characters</span>
                     <input
                       type="checkbox"
                       class="ambiguous-check"
@@ -114,7 +124,7 @@
                   title="( e.g. abcdefgh )"
                 >
                   <label class="b-contain">
-                    <span>Lowercase Letters</span>
+                    <span class="lowercase">Lowercase Letters</span>
                     <input
                       type="checkbox"
                       class="lowercase-check"
@@ -128,7 +138,7 @@
                   title="( e.g. ABCDEFGH )"
                 >
                   <label class="b-contain">
-                    <span>Uppercase Letters</span>
+                    <span class="uppercase">Uppercase Letters</span>
                     <input
                       type="checkbox"
                       class="uppercase-check"
@@ -142,7 +152,7 @@
                   title="( e.g. i, l, 1, L, o, 0, O )"
                 >
                   <label class="b-contain">
-                    <span>Similar Characters</span>
+                    <span class="similars">Similar Characters</span>
                     <input
                       type="checkbox"
                       class="similar-check"
@@ -189,6 +199,9 @@
           </div>
         </div>
         <div class="page2">
+          <div class="no-passwords">
+            Save a password to show it here.
+          </div>
           <div class="saved-passwords" id="saved-passwords"></div>
         </div>
       </div>

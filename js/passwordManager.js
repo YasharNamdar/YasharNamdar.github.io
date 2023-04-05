@@ -54,6 +54,7 @@ export function saveNewPassword(name, url, password) {
     localStorage.setItem(name, JSON.stringify(info));
     passwordNames.push(name);
     localStorage.setItem("passwordNames", JSON.stringify(passwordNames));
+    document.querySelector(".no-passwords").style.display = "none";
 }
 
 export function deleteSavedPassword(name) {
@@ -61,6 +62,9 @@ export function deleteSavedPassword(name) {
     let indexOfItem = passwordNames.indexOf("name");
     passwordNames.splice(indexOfItem, 1);
     localStorage.setItem("passwordNames", JSON.stringify(passwordNames));
+    if (passwordNames.length === 0){
+        document.querySelector(".no-passwords").style.display = "flex";
+    }
 }
 
 export function loadPassword(n, bool) {
@@ -74,6 +78,7 @@ export function loadPassword(n, bool) {
 
 export function loadPasswords() {
     if (passwordNames.length !== 0) {
+        document.querySelector(".no-passwords").style.display = "none";
         for (let index = 0; index < passwordNames.length; index++) {
             let name = passwordNames[index];
             loadPassword(name, false);

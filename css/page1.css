@@ -184,6 +184,10 @@
     margin-right: auto;
 }
 
+.results__password.persian{
+    font-size: 2.5rem !important;
+}
+
 .results__copy {
     margin-right: 10px;
     margin-left: 10px;

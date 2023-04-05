@@ -1,4 +1,5 @@
 import {numbersCheckValue, symbolsCheckValue, ambiguousCheckValue, lowercaseCheckValue, similarCheckValue, uppercaseCheckValue} from "./options.js";
+import {currentLanguage, oneOptionText} from "./translate.js";
 export function generatePassword() {
     const numbers = "23456789";
     const symbols = "!@#$%^&*()";
@@ -34,9 +35,13 @@ export function generatePassword() {
         uppercaseCheckValue === false &&
         similarCheckValue === false
     ) {
-        passwordResult.innerHTML = "Select at least one option.";
+        passwordResult.classList.remove("persian")
+        passwordResult.classList.add(currentLanguage);
+        passwordResult.innerHTML = oneOptionText;
+
         return;
     }
+    passwordResult.classList.remove(currentLanguage);
     passwordResult.innerHTML = password;
     let score = zxcvbn(password);
     let strengthWidth = (score.score + 1) * 20;
@@ -63,6 +68,6 @@ export function generatePassword() {
     }
     let ttc = document.querySelector(".ttc");
     ttc.innerText =
-        "Time To Crack: " +
+        "Time to Crack: " +
         score.crack_times_display.offline_slow_hashing_1e4_per_second;
 }

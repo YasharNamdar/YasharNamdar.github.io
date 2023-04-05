@@ -4,13 +4,15 @@ import * as options from "./options.js";
 import * as modal from "./modal.js";
 import * as generator from "./generator.js";
 import * as passwordManager from "./passwordManager.js"
+import * as translator from "./translate.js"
 
 export function addEvents() {
-    for (const item of document.querySelectorAll(".sidebar-btn")) {
-        item.addEventListener("click", function () {
-            sidebar.setSidebarOn(this);
-        });
-    }
+    document.querySelector(".sidebar-item1").addEventListener("click", function () {
+        sidebar.setSidebarOn(this);
+    });
+    document.querySelector(".sidebar-item2").addEventListener("click", function () {
+        sidebar.setSidebarOn(this);
+    });
 
     document.querySelector(".sidebar-item3").addEventListener("click", darkMode.setDarkModeOn);
 
@@ -35,4 +37,6 @@ export function addEvents() {
 
     document.querySelector(".delete-btn").addEventListener("click", passwordManager.deletePassword)
     document.querySelector(".cancel-reveal").addEventListener("click", modal.revealPageClose)
+
+    document.querySelector(".btn-translate").addEventListener("click", translator.translate)
 }

@@ -1,3 +1,5 @@
+import {lengthText} from "./translate.js";
+
 export let symbolsCheckValue = false;
 export let numbersCheckValue = true;
 export let ambiguousCheckValue = false;
@@ -9,7 +11,7 @@ export function changeLengthValue() {
         ".options-length__text"
     );
     const sliderValue = document.querySelector(".length-slider");
-    lengthSliderText.innerText = "Length: " + sliderValue.value;
+    lengthSliderText.innerText = lengthText + sliderValue.value;
 }
 
 export function symbolsCheck() {

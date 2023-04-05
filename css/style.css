@@ -9,6 +9,11 @@
   --sidebar-width: 5rem;
 }
 
+.persian{
+  font-family: "B Roya" !important;
+  font-size: 1.25rem !important;
+}
+
 body {
   background-color: white;
   display: flex;
@@ -73,7 +78,7 @@ img {
 
 .btn {
   background-color: #d1fae5;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.1s ease;
   cursor: pointer;
   display: flex;
   align-items: center;
