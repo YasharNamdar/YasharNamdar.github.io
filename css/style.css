@@ -1,131 +1,134 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+*{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    overflow-x: hidden;
 }
 
-:root {
-  --sidebar-width: 5rem;
+::selection{
+    background-color: rgb(255, 70, 110);
 }
 
-.persian{
-  font-family: "B Roya" !important;
-  font-size: 1.25rem !important;
+body{
+    width: 100vw;
+    height: 100vh;
 }
 
-body {
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  overflow-y: auto;
-  overflow-x: hidden;
+:root{
+    --controls-height: 100px;
+    --primary-color: crimson;
 }
 
-::selection {
-  background-color: #34d399;
+.container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
 }
 
-
-ion-icon {
-  pointer-events: none;
+.page{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
 }
 
-img {
-  pointer-events: none;
+.controls{
+    border-top: 2px solid var(--primary-color);
+    width: 100%;
+    min-height: var(--controls-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
+/* BUTTONS STYLE */
 
-.header {
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: inherit;
-  position: absolute;
+button{
+    display: flex;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 1.75rem;
+    padding: 10px;
+    transition: ease-in-out 0.1s;
 }
 
-.header-title {
-  width: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #ecfdf5;
-  border-radius: 40px;
-  margin-top: 5px;
-  user-select: none;
-  color: #064e3b;
-  padding: 5px 15px 5px 10px;
-  z-index: 1000;
+button:hover{
+    transform: translateY(-10px);
+    cursor: pointer;
 }
 
-.header-icon {
-  font-size: 2rem;
-  color: #064e3b;
+.btn{
+    margin-right: 10px;
 }
 
-.container {
-  flex-grow: 1;
-  width: 100vw;
-  display: flex;
-  padding: 15px;
-  background-color: inherit;
-  /*filter: blur(5px);*/
+#streams{
+    height: 100%;
+    width: 100%;
+    padding: 50px;
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    overflow-y: auto;
 }
 
+.user-container{
+    width: calc(20vw);
+    height: 90%;
+    min-height: 280px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+    border: 0px solid var(--primary-color);
+    border-radius: 15px;
+    background: linear-gradient(45deg, rgba(220,20,60,1) 0%, rgba(255,70,110,1) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-
-.btn {
-  background-color: #d1fae5;
-  transition: background-color 0.1s ease;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: #34d399 0 1px 4px;
-  color: #064e3b;
-  user-select: none;
-  border-radius: 500px;
 }
 
-.btn:hover {
-  box-shadow: #34d399 0 8px 18px;
+.user-container:hover{
+    border-width: 5px;
 }
 
-.btn:active {
-  background-color: #a7f3d0;
+.user-player{
+    width:auto;
+    height: auto;
+    padding: 0.5rem;
+    background-color: rgba(255,255,255,70%);
+    color: rgba(0,0,0,70%);
+    border-radius: 15px;
+    user-select: none;
 }
 
-.page {
-  margin-right: auto;
-  margin-left: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 5% 5% 0;
-  font-size: large;
-  background-color: inherit;
-  max-width: 1000px;
-  width: 100%;
-  overflow-y: auto;
+input{
+    display: flex;
+    border: 2px solid var(--primary-color);
+    border-radius: 15px;
+    font-size: 1.75rem;
+    padding: 10px;
+    transition: ease-in-out 0.1s;
+    outline: none;
 }
 
-
-.i-input {
-  width: 100%;
-  height: 50px;
-  font-size: medium;
-  padding: 15px;
-  border-radius: 50px;
-  border: 1px solid #047907;
-  outline: none;
+input:focus{
+    border-color: var(--primary-color);
 }
 
-.i-input:focus {
-  outline: none;
+.user-name{
+    margin-right: 10px;
 }
 
-.i-input-warning{
-  border-color: #dc2626;
+.mic-btn{
+    display: none;
+}
+
+.leave-btn{
+    display: none;
 }
