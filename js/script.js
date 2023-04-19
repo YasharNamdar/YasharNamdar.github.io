@@ -20,7 +20,7 @@ let joinAndDisplayLocalStream = async  () =>{
     client.on('user-published', handleUserJoined);
     client.on('user-left', handleUserLeft)
 
-    let UID = await client.join(APP_ID, CHANNEL, TOKEN, )
+    let UID = await client.join(APP_ID, CHANNEL, TOKEN, document.querySelector(".user-name").value)
 
     localTracks = await AgoraRTC.createMicrophoneAndCameraTracks()
 
@@ -83,14 +83,14 @@ let leaveAndRemoveLocalStream = async () => {
 
 let toggleMic = async (e) => {
 
-        if (localTracks[0].muted){
-            await localTracks[0].setMuted(false);
-            e.target.innerText = "Mic On";
-        }else{
-            await localTracks[0].setMuted(true);
-            e.target.innerText = "Mic Off";
+    if (localTracks[0].muted){
+        await localTracks[0].setMuted(false);
+        e.target.innerText = "Mic On";
+    }else{
+        await localTracks[0].setMuted(true);
+        e.target.innerText = "Mic Off";
 
-        }
+    }
 
 }
 
