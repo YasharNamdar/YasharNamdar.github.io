@@ -1,6 +1,6 @@
 
 const APP_ID = "c3c455fc548841c3a9c19a1826d2d2ac";
-const TOKEN = "007eJxTYHg7V2N18x6N2nlBFZb7w4JmlpxSspZefz1+DeO5JTvdyw0VGJKNk01MTdOSTU0sLEwMk40TLZMNLRMNLYzMUoxSjBKTd+2wS2kIZGRY7HOckZEBAkF8FobcxMw8BgYAPo0fXg==";
+const TOKEN = "007eJxTYJj350a81qSoD7ar2/iSM2U69znN50qV7lQSKmlLcnvF7a3AkGycbGJqmpZsamJhYWKYbJxomWxomWhoYWSWYpRilJhcv8kvpSGQkeHV5yMsjAwQCOKzMOQmZuYxMAAA0dseYw==s";
 const CHANNEL = "main";
 
 const client = AgoraRTC.createClient({mode:'rtc', codec:'vp8'});
@@ -26,10 +26,16 @@ let joinAndDisplayLocalStream = async  () =>{
 
     let player = `<div class="user-container" id="user-container-${UID}">
                        <div class="user-player" id="user-${UID}">You</div>
+                       <div class="user-options" id="user-options${UID}"></div>
                     </div>`;
+
+
     document.getElementById('streams').insertAdjacentHTML('beforeend',player);
     document.querySelector(".mic-btn").style.display = "flex";
     document.querySelector(".leave-btn").style.display = "flex";
+
+    document.querySelector(`#user-container-${UID}`).addEventListener("mouseenter", openOptions);
+    document.querySelector(`#user-container-${UID}`).addEventListener("mouseleave", closeOptions);
 
     await client.publish([localTracks[0]]);
 }
@@ -55,9 +61,12 @@ let handleUserJoined = async( user, mediaType) => {
 
         player = `<div class="user-container" style="border-color: ${randomColorRGB}; background:linear-gradient(45deg, ${randomColorRGB} 0%, ${secondRandomColorRGB} 100%)!important;" id="user-container-${user.uid}">
                        <div class="user-player" id="user-${user.uid}">${user.uid}</div>
+                       <div class="user-options" style="background-color: ${randomColorRGB}" id="user-options${user.uid}"></div>
                     </div>`;
         document.getElementById('streams').insertAdjacentHTML('beforeend',player);
 
+        document.querySelector(`#user-container-${user.uid}`).addEventListener("mouseenter", openOptions);
+        document.querySelector(`#user-container-${user.uid}`).addEventListener("mouseleave", closeOptions);
 
         user.audioTrack.play();
 
@@ -83,16 +92,31 @@ let leaveAndRemoveLocalStream = async () => {
 
 let toggleMic = async (e) => {
 
-    if (localTracks[0].muted){
-        await localTracks[0].setMuted(false);
-        e.target.innerText = "Mic On";
-    }else{
-        await localTracks[0].setMuted(true);
-        e.target.innerText = "Mic Off";
+        if (localTracks[0].muted){
+            await localTracks[0].setMuted(false);
+            e.target.innerText = "Mic On";
+        }else{
+            await localTracks[0].setMuted(true);
+            e.target.innerText = "Mic Off";
 
-    }
+        }
 
 }
+
+const openOptions = (e) => {
+    console.log("entered");
+    e.target.firstElementChild.nextElementSibling.style.visibility = "visible";
+}
+
+const closeOptions = (e) => {
+    e.target.firstElementChild.nextElementSibling.style.visibility = "hidden";
+}
+
+
+for (const user of document.querySelectorAll(".user-container")) {
+    user.addEventListener("mouseleave", closeOptions)
+}
+
 
 document.querySelector('.join-btn').addEventListener("click", joinStream)
 document.querySelector('.leave-btn').addEventListener("click", leaveAndRemoveLocalStream)
