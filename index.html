@@ -2,265 +2,227 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/checkbox.css" />
-    <link rel="stylesheet" href="css/darkmode.css" />
-    <link rel="stylesheet" href="css/modal.css" />
-    <link rel="stylesheet" href="css/page1.css" />
-    <link rel="stylesheet" href="css/page2.css" />
-    <link rel="stylesheet" href="css/responsive.css" />
-    <link rel="stylesheet" href="css/scrollbar.css" />
-    <link rel="stylesheet" href="css/sidebar.css" />
-    <link rel="stylesheet" href="css/slider.css" />
-
-    <script src="js/zxcvbn.js"></script>
-    <script src="js/script.js" type="module"></script>
-
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png">
-    <link rel="mask-icon" href="icon/safari-pinned-tab.svg" color="#34d399">
-    <meta name="apple-mobile-web-app-title" content="Passbuilder">
-    <meta name="application-name" content="Passbuilder">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
-    <title>PassBuilder by Yashar Namdar</title>
+    <title>Chat room by Yashar Namdar</title>
+    <link rel="stylesheet" href="src/css/style.css" />
+    <link rel="stylesheet" href="src/css/glass.css" />
+    <link rel="stylesheet" href="src/css/input.css" />
+    <link rel="stylesheet" href="src/css/loginPage.css" />
+    <link rel="stylesheet" href="src/css/mainPage.css" />
+    <link rel="stylesheet" href="src/css/background.css" />
+    <link rel="stylesheet" href="src/css/settingsPage.css" />
+    <link rel="stylesheet" href="src/css/colorpicker.css" />
+    <link rel="stylesheet" href="src/css/reply.css" />
+    <script src="src/js/settings.js" defer type="module"></script>
+    <script src="src/js/message.js" defer type="module"></script>
+    <script src="src/js/script.js" defer type="module"></script>
+    <script src="src/js/main.js" type="module"></script>
   </head>
   <body>
-    <div class="header">
-      <div class="header-title">
-        <ion-icon name="key" class="header-icon"></ion-icon>
-        <div class="header-title__text">PassBuilder</div>
-      </div>
+    <div id="login-page" class="background">
+      <form id="login-box" class="glass">
+        <label class="input-label login-input" >
+            <input id="login-input-username" type="text" class="i-input glass" autocomplete="on" placeholder="Username"/>
+        </label>
+        <label class="input-label login-input" >
+          <input id="login-input-token" type="text" class="i-input glass" autocomplete="on" placeholder="Token" />
+        </label>
+        <label class="input-label login-input" >
+          <input id="login-input-chatroom" type="text" class="i-input glass" autocomplete="on" placeholder="Chatroom Id" />
+        </label>
+        <label id="login-input-pp-label" class="glass c-input">
+          <div id="login-user-image">
+            <img id="login-user-img">
+          </div>
+          Choose a profile picture
+          <input id="login-input-pp" type="file" class="i-input glass" accept="image/*">
+        </label>
+        <button class="glass" id="login-button">
+          <span>Enter</span>
+        </button>
+      </form>
     </div>
-    <div class="container">
-      <div class="sidebar">
-        <div class="sidebar-item btn sidebar-item1 sidebar-btn selected">
-          <ion-icon name="home-outline" class="sidebar-icon"></ion-icon>
-          <div class="sidebar-item__text title-passbuilder ">PassBuilder</div>
-        </div>
-        <div class="sidebar-item btn sidebar-btn sidebar-item2">
-          <ion-icon name="bookmark-outline" class="sidebar-icon"></ion-icon>
-          <div class="sidebar-item__text title-passwords">Passwords</div>
-        </div>
-        <div class="sidebar-item btn sidebar-btn sidebar-item3">
-          <ion-icon name="contrast-outline" class="sidebar-icon"></ion-icon>
-          <div class="sidebar-item__text title-darkmode">Dark Mode</div>
-        </div>
-        <div class="sidebar-item btn sidebar-btn sidebar-item4 btn-translate">
-          <ion-icon name="language-outline" class="sidebar-icon"></ion-icon>
-          <div class="sidebar-item__text persian title-translate">تغییر زبان</div>
-        </div>
-        <span class="credits"></span>
-      </div>
-      <div class="page">
-        <div class="page1">
-          <div class="page1-options">
-            <div class="options-length">
-              <span class="options-length__text">Length: 8</span>
-              <input
-                type="range"
-                class="length-slider"
-                min="1"
-                max="20"
-                step="1"
-                value="8"
-                autocomplete="off"
-              />
+    <div id="main-page">
+      <div class="main-bg background">
+        <div id="main-box">
+          <div id="left-bar">
+            <div id="user-list">
+              <div class="user-tile">
+              <div class="user-image this-user"></div>
+              <div class="user-username this-user">Yashar</div>
+                <div class="tag you-tag"><span>You</span></div>
+              </div>
+<!--              <button class="user-tile glass">
+                <span class="user-image"></span>
+                <span class="user-username">TheKhoshhal</span>
+              </button>-->
             </div>
-            <div class="options-other">
-              <div class="options-left">
-                <div
-                  class="options-left-checkbox options-left__numbers"
-                  title="( e.g. 123456 )"
-                >
-                  <label class="b-contain">
-                    <span class="numbers">Numbers</span>
-                    <input
-                      type="checkbox"
-                      class="numbers-check"
-                      autocomplete="off"
-                      checked="true"
-                    />
-                    <div class="b-input"></div>
-                  </label>
-                </div>
-                <div
-                  class="options-left-checkbox options-left__symbols"
-                  title="( e.g. @#$% )"
-                >
-                  <label class="b-contain">
-                    <span class="symbols">Symbols</span>
-                    <input
-                      type="checkbox"
-                      class="symbols-check"
-                      autocomplete="off"
-                    />
-                    <div class="b-input"></div>
-                  </label>
-                </div>
-
-                <div
-                  class="options-left-checkbox options-left__ambiguous"
-                  title='( { } [ ] ( ) / \ " ` ~ , ; : . )'
-                >
-                  <label class="b-contain">
-                    <span class="ambiguous">Ambiguous Characters</span>
-                    <input
-                      type="checkbox"
-                      class="ambiguous-check"
-                      autocomplete="off"
-                    />
-                    <div class="b-input"></div>
-                  </label>
-                </div>
-              </div>
-              <div class="options-right">
-                <div
-                  class="options-right-checkbox options-right__lowercase"
-                  title="( e.g. abcdefgh )"
-                >
-                  <label class="b-contain">
-                    <span class="lowercase">Lowercase Letters</span>
-                    <input
-                      type="checkbox"
-                      class="lowercase-check"
-                      autocomplete="off"
-                    />
-                    <div class="b-input"></div>
-                  </label>
-                </div>
-                <div
-                  class="options-right-checkbox options-right__uppercase"
-                  title="( e.g. ABCDEFGH )"
-                >
-                  <label class="b-contain">
-                    <span class="uppercase">Uppercase Letters</span>
-                    <input
-                      type="checkbox"
-                      class="uppercase-check"
-                      autocomplete="off"
-                    />
-                    <div class="b-input"></div>
-                  </label>
-                </div>
-                <div
-                  class="options-right-checkbox options-right__similar"
-                  title="( e.g. i, l, 1, L, o, 0, O )"
-                >
-                  <label class="b-contain">
-                    <span class="similars">Similar Characters</span>
-                    <input
-                      type="checkbox"
-                      class="similar-check"
-                      autocomplete="off"
-                    />
-                    <div class="b-input"></div>
-                  </label>
-                </div>
-              </div>
+            <div id="left-bar-options">
+                <button class="left-bar-option glass settings">
+                  <ion-icon name="settings-outline"></ion-icon>
+                  <span>Settings</span>
+                </button>
+                <button class="left-bar-option glass exit">
+                  <ion-icon name="exit-outline"></ion-icon>
+                  <span>Exit</span>
+                </button>
             </div>
           </div>
-          <div class="page1-results">
-            <div class="results-generated">
-              <span class="results__password"></span>
-              <div class="results__copy results__copy__page1 btn" title="Copy">
-                <ion-icon
-                  name="copy-outline"
-                  class="results__copy-icon"
-                ></ion-icon>
-              </div>
-              <div class="results__save results__save__page1 btn" title="Save">
-                <ion-icon
-                  name="bookmark-outline"
-                  class="results__save-icon"
-                ></ion-icon>
-              </div>
-            </div>
-            <div class="results-check">
-              <div class="strength"></div>
-              <div class="score">
-                <span class="ttc"></span>
-              </div>
-            </div>
-          </div>
-          <div class="page1-generate">
-            <div class="generate-div">
-              <div class="generate-btn btn" tabindex="0">
-                <ion-icon
-                  name="sync-outline"
-                  class="generate-btn__icon"
-                ></ion-icon>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="page2">
-          <div class="no-passwords">
-            Save a password to show it here.
-          </div>
-          <div class="saved-passwords" id="saved-passwords"></div>
-        </div>
-      </div>
-      <div class="page-denier"></div>
-    </div>
+          <div id="main-space">
+            <div id="chat-box">
+              <div class="fixer"></div>
+              <div class="chat-bg background other-chat">
+                <div class=" chat glass other-chat">
+                  <span class="chat-text">Hi</span>
+                  <div class="chat-footer">
+                    <ion-icon name="checkmark-outline"></ion-icon>
+                    <span class="chat-time">17:48</span>
+                  </div>
+                  <div class="chat-reactions-box glass c-input">
 
-    <div class="page-save">
-      <div class="save-options">
-        <div class="save-options-name">
-          <input
-            type="text"
-            class="i-input save-input save-input-name"
-            placeholder="Name"
-            autocomplete="off"
-          />
+                  </div>
+                  </div>
+
+              </div>
+<!--
+              <div class="chat-bg background your-chat ">
+                <div class="chat glass your-chat">
+                  <span class="chat-text">Hi</span>
+                  <div class="chat-footer">
+                    <ion-icon name="checkmark-outline"></ion-icon>
+                    <span class="chat-time">17:49</span>
+                  </div>
+                  <div class="chat-reactions-box glass c-input">
+                  </div>
+                </div>
+              </div>
+              <div class="chat-bg background your-chat ">
+                <div class="chat glass your-chat">
+                  <div class="replied c-input">
+                    <span class="replied-user">TheKhoshhal</span>
+                    <span class="replied-text">Hi</span>
+                  </div>
+                  <span class="chat-text">How are you?</span>
+                  <div class="chat-footer">
+                    <ion-icon name="checkmark-outline"></ion-icon>
+                    <span class="chat-time">17:49</span>
+                  </div>
+                  <div class="chat-reactions-box glass c-input">
+                  </div>
+                </div>
+              </div>
+              <div class="chat-bg background other-chat ">
+                <div class="chat glass other-chat">
+                  <span class="chat-text">how are you?</span>
+                  <div class="chat-footer">
+                    <ion-icon name="checkmark-outline"></ion-icon>
+                    <span class="chat-time">17:49</span>
+                  </div>
+                  <div class="chat-reactions-box glass c-input"></div>
+                </div>
+              </div>-->
+            </div>
+            <form id="type-box">
+              <label>
+                <textarea id="type-area" class="c-input glass"></textarea>
+              </label>
+              <button id="send" class="glass">
+                <ion-icon name="send-outline"></ion-icon>
+              </button>
+            </form>
+          </div>
         </div>
-        <div class="save-options-website">
-          <input
-            type="text"
-            class="i-input save-input save-input-url"
-            placeholder="Website (e.g. www.google.com)"
-            autocomplete="off"
-          />
-        </div>
-        <div class="save-options-password">
-          <input
-            type="text"
-            class="i-input save-input save-input-password"
-            placeholder="Password"
-            autocomplete="off"
-          />
-        </div>
-      </div>
-      <div class="save-btns">
-        <div class="save-btn btn">Save</div>
-        <div class="cancel-btn cancel-save btn">Cancel</div>
       </div>
     </div>
+    <div id="settings-page" class="glass">
+        <div class="setting c-input glass theme-color-1">
+          <ion-icon name="color-palette-outline"></ion-icon>
+          Theme color 1
+          <div id="preview-theme-color-1" class="settings-circle glass">
 
-    <div class="page-reveal">
-      <div class="page-reveal-info">
-        <span class="page-reveal-password"></span>
-        <div class="results__copy btn reveal__copy" title="Copy">
-          <ion-icon name="copy-outline" class="results__copy-icon"></ion-icon>
+          </div>
+        </div>
+        <div class="setting c-input glass theme-color-2">
+          <ion-icon name="color-palette-outline"></ion-icon>
+          Theme color 2
+          <div id="preview-theme-color-2" class="settings-circle glass">
+
+          </div>
+        </div>
+      <div class="setting c-input glass darkmode">
+        <ion-icon name="contrast-outline"></ion-icon>
+        Dark mode
+        <div id="darkmode-setting" class="settings-circle glass">
+          <ion-icon name="sunny-outline" class="darkmode-off"></ion-icon>
+          <ion-icon name="moon-outline" class="darkmode-on"></ion-icon>
         </div>
       </div>
-      <div class="page-reveal-btns">
-        <div class="delete-btn btn">Delete</div>
-        <div class="cancel-btn cancel-reveal btn">Close</div>
+      <div id="settings-page-options">
+        <button class="settings-page-option glass save">
+          <ion-icon name="checkmark-outline"></ion-icon>
+          <span>Save</span>
+        </button>
+        <button class="settings-page-option glass cancel">
+          <ion-icon name="close-outline"></ion-icon>
+          <span>Cancel</span>
+        </button>
       </div>
     </div>
-
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-    ></script>
+    <div class="colorpicker-box glass" draggable="false">
+      <div class="colorpicker"></div>
+      <div class="colorpicker-cursor"></div>
+      <label>
+        <input type="range" class="colorpicker-range" min="0" max="1530" step="4" value="0">
+      </label>
+    </div>
+    <div class="options-menu">
+      <div class="reactions-box glass">
+        <div class="reaction-option glass">👍</div>
+        <div class="reaction-option glass">👎</div>
+        <div class="reaction-option glass">😂</div>
+        <div class="reaction-option glass">💀</div>
+        <div class="reaction-option glass">🤯</div>
+        <div class="reaction-option glass">❤️</div>
+        <div class="reaction-option glass">😐</div>
+        <div class="reaction-option glass">🙏</div>
+        <div class="reaction-option glass">😍</div>
+        <div class="reaction-option glass">😭</div>
+        <div class="reaction-option glass">💔</div>
+        <div class="reaction-option glass">🥵</div>
+        <div class="reaction-option glass">🤬</div>
+        <div class="reaction-option glass">👋</div>
+        <div class="reaction-option glass">😩</div>
+        <div class="reaction-option glass">🗿</div>
+        <div class="reaction-option glass">💩</div>
+        <div class="reaction-option glass">😲</div>
+        <div class="reaction-option glass">😁</div>
+        <div class="reaction-option glass">😎</div>
+        <div class="reaction-option glass">🤨</div>
+        <div class="reaction-option glass">🤮</div>
+        <div class="reaction-option glass">🥳</div>
+        <div class="reaction-option glass">🤡</div>
+        <div class="reaction-option glass">🚶🏻‍♂️</div>
+      </div>
+      <div class="context-menu glass">
+          <button class="glass context-menu-reply">
+            <ion-icon name="arrow-undo-outline"></ion-icon>
+            <span>Reply</span>
+          </button>
+          <button class="glass context-menu-edit">
+            <ion-icon name="pencil-outline"></ion-icon>
+            <span>Edit</span>
+          </button>
+          <button class="glass context-menu-select">
+            <ion-icon name="checkmark-outline"></ion-icon>
+            <span>Select</span>
+          </button>
+          <button class="glass context-menu-delete">
+            <ion-icon name="trash-outline"></ion-icon>
+            <span>Delete</span>
+          </button>
+      </div>
+    </div>
+    <div id="page-denier" draggable="false"></div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   </body>
 </html>
