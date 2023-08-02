@@ -1,0 +1,53 @@
+@property --a{
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 45deg;
+}
+
+@-webkit-keyframes bg-animation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes bg-animation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-o-keyframes bg-animation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes bg-animation {
+    0%{
+        background-position:0% 50%;
+        --a: 45deg;
+    }
+    50%{
+        background-position:100% 50%;
+        --a: 225deg;
+    }
+    100%{
+        background-position:0% 50%;
+        --a: 45deg;
+    }
+}
+
+.background{
+    background: linear-gradient(
+            45deg,
+            var(--theme-1),
+            var(--theme-2)
+    );
+    background: linear-gradient(
+            var(--a),
+            var(--theme-1),
+            var(--theme-2)
+    );
+    background-size: 105% 105%;
+    -webkit-animation: bg-animation 45s ease-in-out infinite;
+    -moz-animation: bg-animation 45s ease-in-out infinite;
+    -o-animation: bg-animation 45s ease-in-out infinite;
+    animation: bg-animation 45s ease-in-out infinite;
+}

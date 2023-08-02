@@ -1,0 +1,87 @@
+.colorpicker-box{
+    width: auto;
+    height: auto;
+    padding: 1rem;
+    position: absolute;
+    z-index: 5;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.colorpicker{
+    width: 250px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.colorpicker-range{
+    width: 250px;
+    margin-top: 1rem;
+}
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: linear-gradient(90deg, rgb(255, 0, 0), rgb(255, 255, 0), rgb(0, 255, 0), rgb(0, 255, 255), rgb(0, 0, 255), rgb(255, 0, 255), rgb(255, 0, 0));
+    transition: all 0.2s ease;
+}
+
+input[type="range"]:focus {
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    margin-top: 0; /* Centers thumb on the track */
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    height: 1rem;
+    width: 0.4rem;
+    border: 1px solid black;
+}
+
+/*********** Firefox styles ***********/
+/* slider track */
+input[type="range"]::-moz-range-track {
+    border-radius: 0.5rem;
+}
+
+/* slider thumb */
+input[type="range"]::-moz-range-thumb {
+    border: none; /*Removes extra border that FF applies*/
+    border-radius: 0.5rem;
+    height: 1rem;
+    width: 0.5rem;
+}
+
+.colorpicker-range{
+
+}
+
+.colorpicker-pixel{
+    width: 250px;
+    height: 1px;
+}
+
+.colorpicker-cursor{
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 2rem;
+    border: 2px solid white;
+    position: absolute;
+}
+
+#darkmode-setting{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0.2rem;
+}
+
+.darkmode-off{
+    display: none;
+}
